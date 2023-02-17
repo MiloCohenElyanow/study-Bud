@@ -1,0 +1,88 @@
+
+<main class="container-fluid">
+  <div class="row1">
+    <div id="groupInfoFlex">
+      <h5>{{group.name}}: {{group.subject}}, {{group.date}} @ {{group.time}}</h5>
+    </div>
+    <div>
+      <button class="btnstyle btn-rounded" id="launchVideo">Start a Chat</button>
+    </div>
+  </div>
+
+  <div class="row2">
+    <div class="card col-sm-12 col-lg-4 groupUser">
+      <div class="card-body">
+        <h5 class="card-title attendees">Attendees</h5>
+
+        {{#each group.users_groups as |user|}}
+        
+        <p class="card-text">{{user.first_name}} {{user.last_name}}</p>
+        
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="card col-sm-12 col-lg-7 savedResources">
+      <div class="card-body">
+        <div class="resourceTitle">
+          <div id="resourceTitleFlex">
+            <h5 class="card-title">Resources</h5>
+          </div>
+          <div id="addBtnFlex">
+            <button type="button" class="btnstyle btn-rounded" id="addResourceLaunch"
+              data-mdb-toggle="modal" data-mdb-target="#staticBackdrop">Add a Resource</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        {{#each bruh as |resource|}}
+        <p class="card-text-r"><span class="bold">url:</span> <a href="{{resource.url}}">{{resource.url}}</a></p>
+        <p class="card-text-r top"><span class="bold">Description:</span> {{resource.description}}</p>
+        
+        <p class="card-text-r last"><span class="bold">Submitted By:</span> {{resource.user.first_name}}
+          {{resource.user.last_name}}</p>
+        <hr />
+        {{/each}}
+      </div>
+    </div>
+    {{!--row end div below --}}
+  </div>
+</main>
+
+<section>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add a Resource</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="modalTag">url</p>
+          <div class="form-outline">
+            <input type="url" id="formurl" class="form-control" />
+            <label class="form-label" for="form12">Enter url here</label>
+          </div>
+          <p class="modalTag">Description</p>
+          <div class="form-outline">
+            <input type="textarea" id="formdescription" class="form-control" />
+            <label class="form-label" for="form12">Enter description here</label>
+          </div>
+          <input type="hidden" id="userId" name="userId" value={{user_id}} />
+          <input type="hidden" id="groupId" name="groupId" value={{group.id}} />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="addResource" value="{{post.id}}">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<script src="/js/resource.js"></script>

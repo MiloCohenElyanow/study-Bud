@@ -57,7 +57,7 @@ THEN I am able to create and view study groups as well as add resources and laun
 
 ## Team 👨‍👩‍👧‍👦
 
-- [https://github.com/whotf1](https://github.com/MiloCohenElyanow)
+- [https://github.com/MiloCohenElyanow](https://github.com/MiloCohenElyanow)
 
 - [https://github.com/kcschaefs](https://github.com/kcschaefs)
 
